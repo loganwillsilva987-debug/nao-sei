@@ -3,26 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Eu odeio a Júlia</title>
+<title>Uma nobre questão</title>
 <style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;background:linear-gradient(135deg,#a18cd1,#fbc2eb);color:#fff}.card{width:min(90%,430px);padding:35px 24px;text-align:center;background:#ffffff2e;border:1px solid #ffffff59;border-radius:28px;backdrop-filter:blur(12px);box-shadow:0 20px 60px #461e5a40;position:relative;z-index:2}h1{font-size:29px;margin:8px 0 14px}p{font-size:18px;line-height:1.5}.buttons{height:130px;position:relative;margin-top:20px}button{border:0;border-radius:999px;padding:14px 28px;font-size:18px;font-weight:bold;cursor:pointer;box-shadow:0 8px 20px #00000026}#yes{background:white;color:#7b55b8}#no{background:#7b55b8;color:white;position:absolute;left:53%;top:10px;transition:left .08s,top .08s}.hidden{display:none}#success h1{font-size:34px}#success p{font-size:21px}.heart{position:fixed;bottom:-30px;font-size:24px;animation:up 5s linear forwards;opacity:.8}@keyframes up{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;background:linear-gradient(135deg,#7b1e1e,#d4af37);color:#fff}.card{width:min(91%,440px);padding:35px 24px;text-align:center;background:#ffffff20;border:1px solid #ffffff55;border-radius:28px;backdrop-filter:blur(12px);box-shadow:0 20px 60px #0005;position:relative;z-index:2}h1{font-size:28px;margin:8px 0 16px}p{font-size:19px;line-height:1.5}.crown{font-size:58px}.buttons{height:135px;position:relative;margin-top:18px}button{border:0;border-radius:999px;padding:14px 24px;font-size:17px;font-weight:bold;cursor:pointer;box-shadow:0 8px 20px #0003}#yes{background:#f5d76e;color:#5b1515}#no{background:#5b1515;color:#fff;position:absolute;left:53%;top:10px;transition:left .08s,top .08s}.hidden{display:none}.heart{position:fixed;bottom:-30px;font-size:25px;animation:up 5s linear forwards}@keyframes up{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
 </style>
 </head>
 <body>
-<div class="card" id="question"><div style="font-size:55px">🫶</div>
-<h1>Júlia, quer ser minha maninha para sempre?</h1>
-<p>Tenho uma pergunta muito importante para fazer... 🥹💗</p>
-<div class="buttons"><button id="yes">SIM 💗</button><button id="no">NÃO</button></div></div>
-<div class="card hidden" id="success"><div style="font-size:70px">🥹🫶</div>
-<h1>Ebaaa! 💗</h1>
-<p>Prometo continuar sendo teu melhor amigo e estar contigo para muitas aventuras, risadas e momentos inesquecíveis.</p>
-<p><b>Maninha para sempre! ❤️</b></p><p style="font-size:16px">— Logan</p></div>
+<div class="card" id="question">
+<div class="crown">👑</div>
+<h1>Minha querida mãe,</h1>
+<p>Conceder-me-ias a honra de saborearmos juntos um magnífico <b>KFC</b> nesta gloriosa ocasião?</p>
+<div class="buttons">
+<button id="yes">SIM, meu nobre filho 👑</button>
+<button id="no">NÃO</button>
+</div>
+</div>
+
+<div class="card hidden" id="success">
+<div class="crown">👑🍗</div>
+<h1>Uma decisão digna da realeza!</h1>
+<p>Obrigado, minha querida mãe. Que este banquete de KFC seja memorável! 🍗❤️</p>
+<p>— Vosso nobre filho, Logan</p>
+</div>
+
 <script>
 const no=document.getElementById("no"),area=document.querySelector(".buttons");
 function fugir(){const x=Math.max(0,area.clientWidth-no.offsetWidth),y=Math.max(0,area.clientHeight-no.offsetHeight);no.style.left=Math.floor(Math.random()*x)+"px";no.style.top=Math.floor(Math.random()*y)+"px"}
 ["mouseenter","pointerdown","touchstart","click"].forEach(e=>no.addEventListener(e,fugir));
 document.getElementById("yes").onclick=()=>{document.getElementById("question").classList.add("hidden");document.getElementById("success").classList.remove("hidden");for(let i=0;i<35;i++)setTimeout(createHeart,i*70)};
-function createHeart(){const h=document.createElement("div");h.className="heart";h.textContent=["💗","🫶","💕","❤️","✨"][Math.floor(Math.random()*5)];h.style.left=Math.random()*100+"vw";h.style.animationDuration=(3+Math.random()*3)+"s";document.body.appendChild(h);setTimeout(()=>h.remove(),6500)}
-setInterval(createHeart,700);
+function createHeart(){const h=document.createElement("div");h.className="heart";h.textContent=["🍗","👑","❤️","✨"][Math.floor(Math.random()*4)];h.style.left=Math.random()*100+"vw";h.style.animationDuration=(3+Math.random()*3)+"s";document.body.appendChild(h);setTimeout(()=>h.remove(),6500)}
+setInterval(createHeart,800);
 </script>
 </body></html>
